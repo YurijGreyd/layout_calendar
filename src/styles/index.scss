@@ -8,6 +8,7 @@ body {
   font-family: Arial, sans-serif;
   font-size: 30px;
   height: 100vh;
+  flex-direction: column;
 }
 
 .calendar {
@@ -36,12 +37,14 @@ body {
   transform: translateY(-20px);
 }
 
+// Додає числа в клітинки
 @for $day from 1 through 31 {
   .calendar__day:nth-child(#{$day})::before {
     content: '#{$day}';
   }
 }
 
+// Визначення відступу першого дня в залежності від стартового дня тижня
 $days: (
   mon: 0,
   tue: 101,
@@ -58,6 +61,7 @@ $days: (
   }
 }
 
+// Приховування зайвих днів залежно від довжини місяця
 $leng: (
   28: 3,
   29: 2,
